@@ -1,5 +1,5 @@
 
-import {NavBarCs} from './NavBar/NavBar';
+import NavbarCs from './NavBar/NavbarCs';
 import ItemListContainer from './ItemListContainer/ItemListContainer'
 
 
@@ -10,11 +10,11 @@ function Main () {
 
     return (
 
-<html>
+<div>
 
-<NavBarCs/>
+<NavbarCs/>
 <ItemListContainer greeting="Catálogo de productos"/>
-</html>
+</div>
 
     )
 }

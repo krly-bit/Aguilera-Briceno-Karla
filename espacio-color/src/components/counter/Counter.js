@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
+import './Counter.css'
 
 function Counter (props){
+  
     
-    const [count, setCount] = useState(1);
+    const [count, setCount] = useState(props.startCounter);
     let message;
 
-    function onAdd (props){
-        count+1 <= props.stock ? setCount(count +1): message="no hay stock disponible";
+    function onAdd (){
+        count < props.stock? setCount(count +1): console.log("no hay stock disponible");
 
 
     }
 
-    function onOff(){
-        count -1 <=0? setCount(count-1): message=" ";
+    function onSubstrat(){
+        count > 0? setCount(count-1): console.log("no puedes llevar menos de cero productos");
 
     } 
 
-    return <container>
-<div onclick={onAdd}> +</div> <div> {count} </div> <div onClick={onOff()}> - </div>
+    return <div>
+  <h4> Contador </h4>
+  <div className="counter">
+<div className="itemCounter" onClick={()=>onAdd()}> +</div> <div className="itemCounter"> {count} </div> <div className="itemCounter" onClick={()=>onSubstrat()}> - </div>
 
-        </container>
+        </div>
+        </div>
 
 
 }

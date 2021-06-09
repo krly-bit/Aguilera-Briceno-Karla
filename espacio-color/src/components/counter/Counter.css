@@ -1,0 +1,18 @@
+.counter{
+    display:flex;
+    flex-direction:row;
+    color:white;
+    background-color: #FF005B;
+    width:15%;
+    justify-content: space-between;
+    
+
+}
+
+.itemCounter{
+    border-right: 1px solid white;
+    text-align: center;
+    width:33%;
+    font-weight: 600;
+
+}

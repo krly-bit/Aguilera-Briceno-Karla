@@ -9,8 +9,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-class NavBarCs extends React.Component  {
-    render () {
+function NavbarCs() {
+  
         
         return <ReactBootstrap.Container fluid>
         <ReactBootstrap.Navbar bg="light" variant="light" expand="lg">
@@ -42,6 +42,6 @@ class NavBarCs extends React.Component  {
  }
 
     
- } 
  
- export {NavBarCs}
+ 
+ export default NavbarCs

@@ -6,8 +6,8 @@ import Counter from '../counter/Counter';
 function ItemListContainer (props)
 { 
         return  <ReactBootstrap.Container fluid> 
-{props.greeting}
-<Counter stock="10"></Counter>
+<h2 >{props.greeting} </h2>
+<Counter stock={5} startCounter={1}></Counter>
  </ReactBootstrap.Container> 
  
 
