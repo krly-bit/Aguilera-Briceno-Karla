@@ -1,4 +1,6 @@
 import {useState, useEffect} from "react";
+import Item from '../Item/Item';
+import * as ReactBootstrap from "react-bootstrap";
  function ItemList () {
 
    let products =[
@@ -34,14 +36,17 @@ useEffect( ()=>{
 } ) 
 . then ( msg=>{ return msg;})}, [] ) 
 
-return  <div> {catalogo.map(element=>{ 
-<div className="itemList" key={element.id}>
-<ul>
-            <li> {element.name}</li>
-            <li> {element.category}</li>
-            <li>  {element.stock}</li>
-        </ul>
-         </div>} ) } </div> 
+return  <ReactBootstrap.Row> 
+  <ReactBootstrap.Col md={4}>
+    <h2> Lista de Productos </h2>
+  
+  {catalogo.map(element=>{ 
+return <Item name={element.name} category={element.category} stock={element.stock}> </Item>
+
+         
+        } ) }
+        </ReactBootstrap.Col>
+         </ReactBootstrap.Row> 
          
         }
         

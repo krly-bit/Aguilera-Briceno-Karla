@@ -2,7 +2,6 @@
 import NavbarCs from './NavBar/NavbarCs';
 import ItemListContainer from './ItemListContainer/ItemListContainer'
 
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Main () {
