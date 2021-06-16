@@ -41,7 +41,7 @@ return  <ReactBootstrap.Row>
     <h2> Lista de Productos </h2>
   
   {catalogo.map(element=>{ 
-return <Item name={element.name} category={element.category} stock={element.stock}> </Item>
+return <Item name={element.name} id={element.id} category={element.category} stock={element.stock}> </Item>
 
          
         } ) }
