@@ -13,7 +13,7 @@ function Main () {
          <NavbarCs/> 
      <Switch>
      
-      <Route path="/">
+      <Route exact path="/">
          
       
 
@@ -22,8 +22,9 @@ function Main () {
 
 </Route>   
 
-<Route path="/productDetail/:id">
-    <ProductDetail></ProductDetail>
+<Route path="/productDetail/:productId">
+    
+    <ProductDetail/>
 
 
 </Route>
