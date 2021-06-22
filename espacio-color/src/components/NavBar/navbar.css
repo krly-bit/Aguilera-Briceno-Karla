@@ -1,0 +1,8 @@
+.menuLink{
+    display:block!important;
+    padding: 15px!important;  
+    color:rgba(0,0,0,.5)!important;
+    text-decoration:none!important;  
+}
+
+.seletedLink{background-color: aqua;}

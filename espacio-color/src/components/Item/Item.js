@@ -17,11 +17,11 @@ function Item( props) {
             Cantidad en Stock : { props.stock}
             </ReactBootstrap.ListGroup.Item>
         </ReactBootstrap.Card.Text>
-        <ReactBootstrap.Button variant="primary"> <Link exact to={`/productDetail/${props.id}`} className="link">  Ver Detalle</Link>  </ReactBootstrap.Button>
+        <ReactBootstrap.Button variant="primary"> <Link exact to={`/itemDetailContainer/${props.id}`} className="link">  Ver Detalle</Link>  </ReactBootstrap.Button>
 
     </ReactBootstrap.Card.Body>
 
 }
 
 export default Item
-/*<Link exact to={`/productDetail/${props.id}/`} className="link"> Ver Detalle</Link> */
+/*<Link exact to={`/itemDetailContainer/${props.id}/`} className="link"> Ver Detalle</Link> */

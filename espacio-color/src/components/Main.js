@@ -1,7 +1,7 @@
 
 import NavbarCs from './NavBar/NavbarCs';
 import ItemListContainer from './ItemListContainer/ItemListContainer';
-import ProductDetail from './ProductDetail/ProductDetail';
+import ItemDetailContainer from './ItemDetailContainer/ItemDetailContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route} from 'react-router-dom'
 
@@ -22,12 +22,20 @@ function Main () {
 
 </Route>   
 
-<Route path="/productDetail/:productId">
+<Route exact path="/itemDetailContainer/:productId">
     
-    <ProductDetail/>
+    <ItemDetailContainer/>
 
 
 </Route>
+<Route exact path="/category/:id">
+
+<ItemListContainer greeting="Catálogo de productos"/>
+
+</Route>
+
+
+
 </Switch>  
 </BrowserRouter>
     )

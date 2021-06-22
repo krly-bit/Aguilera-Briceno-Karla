@@ -4,25 +4,35 @@ import * as ReactBootstrap from "react-bootstrap";
 import Logo from '../../assets/images/logo/Logo';
 import CartWidget from '../CartWidget/CartWidget'; 
 import Navbar from 'react-bootstrap/Navbar';
+import { Link, NavLink } from 'react-router-dom';
+import './navbar.css';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-function NavbarCs() {
+function NavbarCs(props) {
   
         
         return <ReactBootstrap.Container fluid>
         <ReactBootstrap.Navbar bg="light" variant="light" expand="lg">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <ReactBootstrap.Navbar.Brand href="#home"> <Logo/> </ReactBootstrap.Navbar.Brand>
+        <ReactBootstrap.Navbar.Brand href="/"> <Logo/> </ReactBootstrap.Navbar.Brand>
   <ReactBootstrap.Navbar.Collapse id="basic-navbar-nav">
 
     <ReactBootstrap.Nav className="mr-auto">
-      <ReactBootstrap.Nav.Link href="#home">Inicio</ReactBootstrap.Nav.Link>
-      <ReactBootstrap.Nav.Link href="#novedades">Novedades</ReactBootstrap.Nav.Link>
-      <ReactBootstrap.Nav.Link href="#pasteles"> Pasteles</ReactBootstrap.Nav.Link>
-      <ReactBootstrap.Nav.Link href="#invierno"> Invierno</ReactBootstrap.Nav.Link>
+  
+      <NavLink exact to={`/`} className="menuLink" activeClassName="selectedLink">
+        Inicio </NavLink> 
+      <NavLink exact to={`/category/novedades`} className="menuLink" activeClassName="selectedLink">
+        Novedades </NavLink> 
+        
+        
+      <NavLink exact to={`/category/pasteles`} className="menuLink" activeClassName="selectedLink">
+        Pasteles </NavLink> 
+        <NavLink exact to={`/category/invierno`} className="menuLink" activeClassName="selectedLink">
+        Invierno </NavLink> 
+
       
       </ReactBootstrap.Nav>
   
