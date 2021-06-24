@@ -28,9 +28,15 @@ function Main () {
 
 
 </Route>
-<Route exact path="/category/:id">
+<Route exact path="/category/:nameCategory">
 
 <ItemListContainer greeting="Catálogo de productos"/>
+
+</Route>
+
+<Route exact path="/cart">
+
+<p> Carrito de compras </p>
 
 </Route>
 
