@@ -1,16 +1,17 @@
 
-
-import * as ReactBootstrap from "react-bootstrap";
 import Counter from '../counter/Counter';
 import ItemList from '../ItemList/ItemList';
+import './ItemListContainer.css';
 
 function ItemListContainer (props)
 { 
-        return  <ReactBootstrap.Container fluid> 
-<h2 >{props.greeting} </h2>
+        return  <div className="container"> 
+<h2 className="text-center main-title my-4 py-4" >{props.greeting} </h2>
+<div className="row">
 
 <ItemList></ItemList>
- </ReactBootstrap.Container> 
+</div>
+ </div> 
  
 
 

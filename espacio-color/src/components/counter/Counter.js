@@ -19,18 +19,17 @@ function Counter (props){
     } 
 
     function BuyButton( props){
-        return <button onClick={(ev)=>{window.location.replace(props.url)}}> Terminar compra </button>
+        return <button className="BuyButton btn-light" onClick={(ev)=>{window.location.replace(props.url)}}> Terminar compra </button>
 
 
     }
 
-    return <div>
-  <h4> Contador </h4>
+    return <div className="containerCounter">
+ <span className="add-to-cart"> Agregar al carrito </span>
   <div className="counter">
-<div className="itemCounter" onClick={()=>onAdd()}> +</div> <div className="itemCounter"> {count} </div> <div className="itemCounter" onClick={()=>onSubstrat()}> - </div>
-
-
-        </div> 
+      
+<div className="itemCounter itemAction" onClick={()=>onAdd()}>+</div> <div className="itemCounter itemNumber"> {count} </div> <div className="itemCounter itemAction" onClick={()=>onSubstrat()}>-</div>
+</div> 
         <div>{  count >=1?  (<BuyButton url='/cart'/>): (<p> </p>) }
         </div>
         

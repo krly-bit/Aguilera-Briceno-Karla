@@ -1,6 +1,9 @@
 import {useState, useEffect} from "react";
 import Item from '../Item/Item';
-import * as ReactBootstrap from "react-bootstrap";
+import './itemList.css'  
+import Loading from '../../assets/images/loading/Loading'
+import ArticleList from '../../ArticleList'
+import { useParams } from 'react-router-dom';
  function ItemList () {
 
    let products =[
@@ -9,16 +12,22 @@ import * as ReactBootstrap from "react-bootstrap";
         {id:"3", name:"movil de semillas",stock:"20", category:"deco", description:"Móvil de semillas", models:["colores tropicales", "colores marinos", "colores puesta de sol", " colores noche"]},]
 
 const [catalogo, setCatalogo] = useState([{ id:"", name:" ", stock:"", category:"", description:"", models:""}]);
-
+const [loading, setLoading] =useState(true);
+let category=useParams();
+let totalProducts;
 useEffect( ()=>{
+ setLoading(true); 
  new Promise( (resolve, reject)=>{
-      setTimeout(resolve({result:products}, 3000))
+      setTimeout(resolve({result:ArticleList}, 150000))
   } )
   
   .then( 
       data=>{ if (data.result){
-        console.log(data.result)
-        setCatalogo(data.result)
+        console.log(category.nameCategory)
+        if (category.nameCategory!=undefined) { totalProducts= data.result.filter(product=> product.subcategory==category.nameCategory) }
+        else { totalProducts=data.result;
+        console.log("no pase el if")}
+        setCatalogo(totalProducts)
         console.log(catalogo)
       } else{
           throw new Error()
@@ -34,20 +43,22 @@ useEffect( ()=>{
   .catch(error=>{ console.log(error.message);
     return "No hay productos disponibles"
 } ) 
-. then ( msg=>{ return msg;})}, [] ) 
+.finally (() =>{
+   setLoading(false);})}, [] ) 
 
-return  <ReactBootstrap.Row> 
-  <ReactBootstrap.Col md={4}>
-    <h2> Lista de Productos </h2>
+return <div className="row containerProducts py-4"> 
   
-  {catalogo.map(element=>{ 
-return <Item name={element.name} id={element.id} category={element.category} stock={element.stock}> </Item>
+    {loading?( <p> <h2> LOADING</h2> <Loading> </Loading> </p>): (
+  
+  catalogo.map(element=>{ 
+return <div className="col-md-4">
+  
+  <Item name={element.name} id={element.id} category={element.category} stock={element.stock}> </Item> </div>
 
          
-        } ) }
-        </ReactBootstrap.Col>
-         </ReactBootstrap.Row> 
-         
+        } ) 
+        
+         ) } </div>         
         }
         
         export default ItemList

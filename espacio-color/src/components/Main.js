@@ -3,7 +3,8 @@ import NavbarCs from './NavBar/NavbarCs';
 import ItemListContainer from './ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './ItemDetailContainer/ItemDetailContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Switch, Route} from 'react-router-dom'
+import { BrowserRouter, Switch, Route} from 'react-router-dom';
+import './main.css';
 
 function Main () {
 

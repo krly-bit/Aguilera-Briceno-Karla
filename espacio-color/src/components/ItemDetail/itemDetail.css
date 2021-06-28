@@ -1,0 +1,16 @@
+.cardInfo{
+    
+    background-color: rgba(250, 250, 250, 0.9);
+    color:#31B5C2;
+    border: 1px solid yellow;
+}
+
+.productTitle{
+    color:#EF9C39;
+    color: #D90143;
+
+}
+
+.cardImage{
+    background-color: #31B5C2;
+}

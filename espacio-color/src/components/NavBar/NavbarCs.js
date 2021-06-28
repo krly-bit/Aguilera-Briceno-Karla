@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-
-import * as ReactBootstrap from "react-bootstrap";
 import Logo from '../../assets/images/logo/Logo';
 import CartWidget from '../CartWidget/CartWidget'; 
 import Navbar from 'react-bootstrap/Navbar';
@@ -12,43 +10,62 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function NavbarCs(props) {
+
+ 
   
         
-        return <ReactBootstrap.Container fluid>
-        <ReactBootstrap.Navbar bg="light" variant="light" expand="lg">
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <ReactBootstrap.Navbar.Brand href="/"> <Logo/> </ReactBootstrap.Navbar.Brand>
-  <ReactBootstrap.Navbar.Collapse id="basic-navbar-nav">
+        return <div className="container-fluid">
+        <div className="navbar navbar-expand-sm navbar-light bg-light">
+                      
+      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapsed" aria-controls="navbar-collapsed" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+        
+        </button>
+        <div className="navbar-brand" href="/"> <Logo/> </div>
+  <div id="navbar-collapsed">
 
-    <ReactBootstrap.Nav className="mr-auto">
+    <div className="nav mr-auto">
+     
   
+        </div> 
       <NavLink exact to={`/`} className="menuLink" activeClassName="selectedLink">
         Inicio </NavLink> 
+        <div className="dropdown show">
+
+        <div id="dropdownMenuLink" className="menuLink dropdown-toggle" activeClassName="selectedLink" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        deco-hogar </div>
+       <div>
+  <NavLink  exact to={`/category/cuadros`} className="dropdown-item">Cuadros</NavLink>
+  <NavLink  exact to={`/category/movil`} className="dropdown-item">Móviles</NavLink>
+  <NavLink  exact to={`/category/luminaria`} className="dropdown-item">Luminaria</NavLink>
+  
+</div>
+
+        
+        </div>
+        
+        
       <NavLink exact to={`/category/novedades`} className="menuLink" activeClassName="selectedLink">
         Novedades </NavLink> 
-        
-        
-      <NavLink exact to={`/category/pasteles`} className="menuLink" activeClassName="selectedLink">
-        Pasteles </NavLink> 
         <NavLink exact to={`/category/invierno`} className="menuLink" activeClassName="selectedLink">
         Invierno </NavLink> 
 
       
-      </ReactBootstrap.Nav>
+      </div>
   
-   
-    <ReactBootstrap.Form inline>
+      
+    <form className="d-flex">
     <CartWidget/>
-      <ReactBootstrap.FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
+      <input className="form-control" type="search" placeholder="Buscar"/>
   
-      <ReactBootstrap.Button variant="outline-info">Buscar</ReactBootstrap.Button>
-    </ReactBootstrap.Form>
+      <button className="btn btn-outline-info" type="submit">Buscar</button>
+    </form>
     
-    </ReactBootstrap.Navbar.Collapse>
-  </ReactBootstrap.Navbar>
+    </div>
+  </div>
 
   
-  </ReactBootstrap.Container>
+  
  }
 
     

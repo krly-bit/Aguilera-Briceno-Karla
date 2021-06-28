@@ -1,3 +1,34 @@
 .link{
     color:white;
+    
+}
+
+.link:hover{
+    color:yellow;}
+.cardText{
+    color:#24A2F5;
+    background-color: rgba(250, 250, 250, 0.9);
+    border: 1px solid yellow;
+}
+
+.textDetail{
+    background-color: white;
+    border: 1px solid yellow;
+}
+
+.button-item{
+    background-color: #31B5C2;
+    margin-top:30px;
+}
+
+.button-item:hover {
+    background-color: blue;
+
+}
+
+.itemList{
+    background-color:#31B5C2;
+}
+.bgProductDetail{
+    background-color:#31B5C2;
 }

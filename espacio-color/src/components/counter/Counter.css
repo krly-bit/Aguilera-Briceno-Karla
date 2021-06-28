@@ -2,22 +2,47 @@
     display:flex;
     flex-direction:row;
     color:white;
-    background-color: #FF005B;
-    width:15%;
+    
     justify-content: space-between;
     
 
 }
 
 .itemCounter{
-    border-right: 1px solid white;
+    border: 1px solid yellow;
     text-align: center;
-    width:33%;
+    width:25px;
     font-weight: 600;
+    background-color: white;
+    color: #D90143;
+    padding: 1px 10px;
+    margin-left:1px;
+    border-radius: 2px;
+    
 
+}
+.add-to-cart{
+    color: #D90143; 
+}
+
+.itemNumber{
+background-color:#52B96D!important;
+color:white!important;
+border-width: 0px!important;
 }
 
 .BuyButton{
-    width:100%;
-    background-color: blue;
+    color:#31B5C2;
+    width:150px;
+}
+
+.itemAction{
+    cursor:pointer;
+}
+
+.containerCounter{
+    display:flex;
+    flex-direction:row;
+    height:30px;
+    
 }

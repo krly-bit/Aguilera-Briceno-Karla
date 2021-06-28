@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-import * as ReactBootstrap from "react-bootstrap";
 import ItemDetail from '../ItemDetail/ItemDetail';
+import './itemDetailContainer.css';
+import Loading from '../../assets/images/loading/Loading';
+import ArticleList from '../../ArticleList';
 
 
 function ItemDetailContainer ()
@@ -16,14 +18,12 @@ function ItemDetailContainer ()
 let productSelected;
 
 const [product, setProduct] = useState([{id:"", name:"", stock:"", description:"", models:"",}]);
-
+const [loading, setLoading]=useState(true);
 useEffect(()=>{
-    
+ setLoading(true);  
+new Promise( (resolve, reject) => {
 
-
-    new Promise( (resolve, reject) => {
-
-        setTimeout(resolve({ result: products,}, 3000))})
+        setTimeout(resolve({ result: ArticleList,}, 3000))})
 
         .then( (data) => {
 
@@ -44,9 +44,13 @@ useEffect(()=>{
          console.log("Ha ocurrido un error");
      }
      
-     ).catch( error=> {console.log(error.message)} )
-    .then( message=>{ return <div> Ha ocurrido el siguiente error ${message} </div>}) }, [])
-return <ItemDetail name={product.name} category={product.category} description={product.description} image={product.image} stock={product.stock} > </ItemDetail>
+     ).catch( error=> {console.log(error.message);
+        return <div> Ha ocurrido un error</div>
+    } )
+    .finally( ()=>{ setLoading(false) }) }, [])
+return <div className="container my-5 mx-auto containerProductDetail"> 
+{ loading? (<p className="text-center"> <h2> Loading </h2> <Loading></Loading> </p> ): (
+<div className="row mx-auto"> <div className="col-md-2"></div> <div className="col-md-8"><ItemDetail name={product.name} category={product.category} description={product.description} image={product.image} stock={product.stock} > </ItemDetail> </div> </div>)} </div>
 /*<div>  detalle producto <br></br>
 Producto: {product.name} <br></br>
 Categoría : {product.category} <br></br>

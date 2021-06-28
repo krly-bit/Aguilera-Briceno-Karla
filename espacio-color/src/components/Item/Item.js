@@ -1,25 +1,24 @@
 import React, { Component } from "react";
-import * as ReactBootstrap from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import './item.css';
 
 function Item( props) {
 
-    return <ReactBootstrap.Card.Body>
-        <ReactBootstrap.Card.Title>
-          Producto: {props.name}
-        </ReactBootstrap.Card.Title>
-        <ReactBootstrap.Card.Text>
-            <ReactBootstrap.ListGroup.Item>
+    return <div className="card-body itemList">
+        <div className="card-title text-center">
+           {props.name}
+        </div>
+        <div className=" card-text cardText">
+            <div className="list-group-item cardText">
             Categoría: {props.category}<br/> 
-            </ReactBootstrap.ListGroup.Item>
-            <ReactBootstrap.ListGroup.Item>
+            </div>
+            <div className=" list-group-item cardText">
             Cantidad en Stock : { props.stock}
-            </ReactBootstrap.ListGroup.Item>
-        </ReactBootstrap.Card.Text>
-        <ReactBootstrap.Button variant="primary"> <Link exact to={`/itemDetailContainer/${props.id}`} className="link">  Ver Detalle</Link>  </ReactBootstrap.Button>
+            </div>
+        </div>
+        <a className="py-2  px-2 button btn-light button-item"> <Link exact to={`/itemDetailContainer/${props.id}`} className="link">  Ver Detalle</Link>  </a>
 
-    </ReactBootstrap.Card.Body>
+    </div>
 
 }
 
