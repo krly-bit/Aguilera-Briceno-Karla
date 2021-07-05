@@ -5,14 +5,21 @@ import ItemDetailContainer from './ItemDetailContainer/ItemDetailContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import './main.css';
+import React, {useContext} from 'react';
+import {useState} from 'react';
+import CartContext from '../context/CartContext'
+import CartProvider from '../provider/CartProvider'
 
 function Main () {
 
+ 
 
     return (
-        <BrowserRouter>
-         <NavbarCs/> 
-     <Switch>
+        
+<BrowserRouter>
+<CartProvider>
+<NavbarCs/> 
+<Switch>
      
       <Route exact path="/">
          
@@ -44,7 +51,9 @@ function Main () {
 
 
 </Switch>  
+</CartProvider>
 </BrowserRouter>
+
     )
 }
  export default Main

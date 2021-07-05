@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import {useContext} from 'react';
+import CartContext from '../../context/CartContext';
+
 import './Counter.css'
 
 function Counter (props){
@@ -19,13 +22,15 @@ function Counter (props){
     } 
 
     function BuyButton( props){
-        return <button className="BuyButton btn-light" onClick={(ev)=>{window.location.replace(props.url)}}> Terminar compra </button>
+        return <div>
+             
+            <button className="BuyButton btn-light" onClick={(ev)=>{window.location.replace(props.url)}}> Terminar compra </button> </div>
 
 
     }
 
     return <div className="containerCounter">
- <span className="add-to-cart"> Agregar al carrito </span>
+ <button className="BuyButton btn-light" onClick={()=> addToCart(props)}> Agregar al carrito </button>
   <div className="counter">
       
 <div className="itemCounter itemAction" onClick={()=>onAdd()}>+</div> <div className="itemCounter itemNumber"> {count} </div> <div className="itemCounter itemAction" onClick={()=>onSubstrat()}>-</div>
