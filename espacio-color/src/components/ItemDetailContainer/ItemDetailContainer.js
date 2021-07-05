@@ -50,7 +50,7 @@ new Promise( (resolve, reject) => {
     .finally( ()=>{ setLoading(false) }) }, [])
 return <div className="container my-5 mx-auto containerProductDetail"> 
 { loading? (<p className="text-center"> <h2> Loading </h2> <Loading></Loading> </p> ): (
-<div className="row mx-auto"> <div className="col-md-2"></div> <div className="col-md-8"><ItemDetail name={product.name} category={product.category} description={product.description} image={product.image} stock={product.stock} > </ItemDetail> </div> </div>)} </div>
+<div className="row mx-auto"> <div className="col-md-2"></div> <div className="col-md-8"><ItemDetail name={product.name} category={product.category} description={product.description} image={product.image} stock={product.stock} id={product.id}> </ItemDetail> </div> </div>)} </div>
 /*<div>  detalle producto <br></br>
 Producto: {product.name} <br></br>
 Categoría : {product.category} <br></br>

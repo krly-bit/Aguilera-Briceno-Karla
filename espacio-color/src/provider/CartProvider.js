@@ -18,12 +18,12 @@ export default function CartProvider({ defaultValue = [], children }) {
     setCart([]);
   }
 
-  function addToCart(product) {
-    if (isInCart(product)) {
+  function addToCart(item, quantity, id) {
+    if (isInCart(id)) {
       console.log('Element already in cache store.');
       return;
     }
-    setCart([product.item, product.quantity]);
+    setCart([ item,quantity]);
     console.log('Elemento agregado!');
   }
   return (

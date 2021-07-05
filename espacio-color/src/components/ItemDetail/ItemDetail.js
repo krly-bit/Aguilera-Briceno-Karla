@@ -22,7 +22,7 @@ console.log(props)
 <li> Descripción: {props.description} </li> </ul> </p>
 
 
- <Counter startCounter={1} stock={props.stock}></Counter>
+ <Counter startCounter={1} stock={props.stock} id={props.id} item={props.name}></Counter>
 </div>
 </div>
 </div>
