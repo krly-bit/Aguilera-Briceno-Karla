@@ -23,7 +23,7 @@ export default function CartProvider({ defaultValue = [], children }) {
   function addToCart(obj) {
     console.log({obj})
     if (isInCart({obj})) {
-      console.log('Element already in cache store.');
+      console.log('El producto ya está en el carrito');
      
       return;
     }
