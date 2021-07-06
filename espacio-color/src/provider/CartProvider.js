@@ -20,13 +20,22 @@ export default function CartProvider({ defaultValue = [], children }) {
     setCart([]);
   }
 
+  function quantityInStock(obj){
+
+    return obj.stock < obj.quantity
+  }
+
   function addToCart(obj) {
     console.log({obj})
     if (isInCart({obj})) {
       console.log('El producto ya está en el carrito');
-     
-      return;
+           return;
     }
+
+    if (quantityInStock({obj}))
+    { console.log('No hay suficiente stock del producto');
+  return;   
+  }
 
     let product=obj
     console.log(product)
