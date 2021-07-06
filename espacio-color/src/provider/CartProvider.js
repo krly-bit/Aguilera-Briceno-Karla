@@ -10,21 +10,29 @@ export default function CartProvider({ defaultValue = [], children }) {
     return cart.find(x => x.id === id);
   }
 
-  function isInCart({ id }) {
-    return id === undefined ? undefined : getFromCart(id);
+  function isInCart({obj}) {
+    console.log({obj});
+    return obj.id === undefined ? undefined : getFromCart(obj.id) !== undefined;
+    
   }
 
   function clear() {
     setCart([]);
   }
 
-  function addToCart(item, quantity, id) {
-    if (isInCart(id)) {
+  function addToCart(obj) {
+    console.log({obj})
+    if (isInCart({obj})) {
       console.log('Element already in cache store.');
+     
       return;
     }
-    setCart([ item,quantity]);
-    console.log('Elemento agregado!');
+
+    let product=obj
+    console.log(product)
+    setCart([...cart, product]);
+     console.log('elemento agregado');
+    
   }
   return (
     <CartContext.Provider
