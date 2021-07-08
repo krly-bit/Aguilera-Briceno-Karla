@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 import './Counter.css'
 
@@ -21,9 +22,9 @@ function Counter (props){
     } 
 
     function BuyButton( props){
-        return <div>
+        return <Link exact to={`/cart`} className="BuyButton btn-light"> Comprar</Link>
              
-            <button className="BuyButton btn-light" onClick={(ev)=>{window.location.replace(props.url)}}> Terminar compra </button> </div>
+            
 
 
     }
@@ -34,9 +35,8 @@ function Counter (props){
       <div className="itemCounter itemAction" onClick={()=>onAdd()}>+</div> <div className="itemCounter itemNumber"> {count} </div> <div className="itemCounter itemAction" onClick={()=>onSubstrat()}>-</div>
 </div> 
         <div>{  count >=1?  (<BuyButton url='/cart'/>): (<p> </p>) }
-        </div>
         
-        </div>
+    </div> </div>
 
 }
 

@@ -34,12 +34,12 @@ function NavbarCs(props) {
 
         <div id="dropdownMenuLink" className="menuLink dropdown-toggle" activeClassName="selectedLink" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         deco-hogar </div>
-       <div>
-  <NavLink  exact to={`/category/cuadros`} className="dropdown-item">Cuadros</NavLink>
-  <NavLink  exact to={`/category/movil`} className="dropdown-item">Móviles</NavLink>
-  <NavLink  exact to={`/category/luminaria`} className="dropdown-item">Luminaria</NavLink>
+       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+ <li> <NavLink  exact to={`/category/cuadros`} className="dropdown-item">Cuadros</NavLink> </li>
+<li>  <NavLink  exact to={`/category/movil`} className="dropdown-item">Móviles</NavLink> </li>
+<li>  <NavLink  exact to={`/category/luminaria`} className="dropdown-item">Luminaria</NavLink> </li>
   
-</div>
+</ul>
 
         
         </div>

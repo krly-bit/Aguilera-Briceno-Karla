@@ -2,7 +2,7 @@
 import NavbarCs from './NavBar/NavbarCs';
 import ItemListContainer from './ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './ItemDetailContainer/ItemDetailContainer';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import CartContainer from './CartContainer/CartContainer';
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import './main.css';
 import React, {useContext} from 'react';
@@ -44,7 +44,7 @@ function Main () {
 
 <Route exact path="/cart">
 
-<p> Carrito de compras </p>
+<CartContainer></CartContainer>
 
 </Route>
 

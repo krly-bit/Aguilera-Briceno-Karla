@@ -40,13 +40,13 @@ export default function CartProvider({ defaultValue = [], children }) {
     let product=obj
     console.log(product)
     setCart([...cart, product]);
+     console.log(cart);
      console.log('elemento agregado');
     
   }
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, isInCart, cartSize: cart.length }}
-    >
+      value={{ cart, addToCart, isInCart, cartSize: cart.length }}>
       {children}
     </CartContext.Provider>
   );
