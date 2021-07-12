@@ -6,10 +6,12 @@ import Loading from '../../assets/images/loading/Loading';
 import ArticleList from '../../ArticleList';
 import {useContext} from 'react';
 import CartContext from '../../context/CartContext';
+import Counter from '../counter/Counter';
 
 function ItemDetailContainer ()
 {
     const { addToCart } = useContext(CartContext);
+    const cart=useContext(CartContext);
   
 
         let productId=useParams();
@@ -49,7 +51,7 @@ new Promise( (resolve, reject) => {
     .finally( ()=>{ setLoading(false) }) }, [])
 return <div className="container my-5 mx-auto containerProductDetail"> 
 { loading? (<p className="text-center"> <h2> Loading </h2> <Loading></Loading> </p> ): (
-<div className="row mx-auto"> <div className="col-md-2"></div> <div className="col-md-8"><ItemDetail name={product.name} category={product.category} description={product.description} image={product.image} stock={product.stock} id={product.id} addToCart={addToCart}> </ItemDetail> </div> </div>)} </div>
+<div className="row mx-auto"> <div className="col-md-2"></div> <div className="col-md-8"><ItemDetail name={product.name} category={product.category} description={product.description} image={product.image} stock={product.stock} id={product.id} addToCart={addToCart} cart-context={cart} > </ItemDetail> </div> </div>)} </div>
 /*<div>  detalle producto <br></br>
 Producto: {product.name} <br></br>
 Categoría : {product.category} <br></br>

@@ -1,24 +1,19 @@
 import {useContext} from 'react';
 import CartContext from '../../context/CartContext';
 import { useEffect, useState } from "react";
+import Counter from '../counter/Counter';
+import Cart from '../Cart/Cart';
 
 function CartContainer () {
     const cart  = useContext(CartContext);
+    console.log(cart);
+   
     const [cartlist, setCartlist] = useState(cart);
     console.log(cartlist);
-    console.log(cartlist.cart);
+    console.log(cartlist);
+ 
     
-    
-    return <div className="container">
-        {cartlist.cart? ( cartlist.cart.map( item => {
-        return <ul>
-            <li> Producto: {item.item}</li>
-            <li>  Cantidad {item.quantity} </li> </ul>
-        })) : ( <div> No hay items en el carrito </div>) 
-            
-            }
-            
-        </div>  
+    return <Cart cartlist={cartlist}> </Cart>
 
 
 }

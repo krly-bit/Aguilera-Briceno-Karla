@@ -1,12 +1,22 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect} from 'react';
 import CartContext from '../context/CartContext';
 
 
 
 export default function CartProvider({ defaultValue = [], children }) {
   const [cart, setCart] = useState(defaultValue);
-
-  function getFromCart(id) {
+  const [totalItems, setTotalItems]=useState(0);
+  useEffect(()=>{  
+   console.log(cart);
+    let counter=0;
+    if (cart.length>0){ 
+    for(let i=0; i<cart.length; i++)
+    {counter=cart[i].quantity + counter}
+    setTotalItems(counter);
+   }
+  else {setTotalItems(0)}
+  },[cart]) 
+function getFromCart(id) {
     return cart.find(x => x.id === id);
   }
 
@@ -20,9 +30,21 @@ export default function CartProvider({ defaultValue = [], children }) {
     setCart([]);
   }
 
+ function removeItem(id){
+   console.log(cart);
+   console.log(id);
+   let index= cart.map(elemento=>elemento.id).indexOf(id);
+ let updateCart= cart.splice(index,1);
+ setCart([updateCart]);
+ 
+   
+    
+  
+  } 
+
   function quantityInStock(obj){
 
-    return obj.stock < obj.quantity
+    return obj.stock > obj.quantity
   }
 
   function addToCart(obj) {
@@ -46,7 +68,7 @@ export default function CartProvider({ defaultValue = [], children }) {
   }
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, isInCart, cartSize: cart.length }}>
+      value={{ cart, addToCart, isInCart, removeItem, clear, totalItems, cartSize: cart.length }}>
       {children}
     </CartContext.Provider>
   );
