@@ -4,6 +4,8 @@ import './itemList.css'
 import Loading from '../../assets/images/loading/Loading'
 import ArticleList from '../../ArticleList'
 import { useParams } from 'react-router-dom';
+import { getFirestore } from './factory/firebase.js';
+
  function ItemList () {
 
    let products =[
@@ -17,10 +19,11 @@ let category=useParams();
 let totalProducts;
 useEffect( ()=>{
  setLoading(true); 
- new Promise( (resolve, reject)=>{
-      setTimeout(resolve({result:ArticleList}, 150000))
-  } )
-  
+ const db = getFirestore();
+ const itemCollection = db.collection('items');
+
+ /*new Promise( (resolve, reject)=>*/
+ itemCollection.get() 
   .then( 
       data=>{ if (data.result){
         console.log(category.nameCategory)

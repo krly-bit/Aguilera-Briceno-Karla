@@ -10,6 +10,7 @@ import {useState} from 'react';
 import CartContext from '../context/CartContext'
 import CartProvider from '../provider/CartProvider'
 
+
 function Main () {
 
  
