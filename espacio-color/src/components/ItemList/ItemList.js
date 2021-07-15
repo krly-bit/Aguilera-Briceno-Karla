@@ -4,7 +4,7 @@ import './itemList.css'
 import Loading from '../../assets/images/loading/Loading'
 import ArticleList from '../../ArticleList'
 import { useParams } from 'react-router-dom';
-import { getFirestore } from './factory/firebase.js';
+import { getFirestore } from '../../firebase/firebase.js';
 
  function ItemList () {
 
@@ -24,14 +24,15 @@ useEffect( ()=>{
 
  /*new Promise( (resolve, reject)=>*/
  itemCollection.get() 
-  .then( 
-      data=>{ if (data.result){
-        console.log(category.nameCategory)
-        if (category.nameCategory!=undefined) { totalProducts= data.result.filter(product=> product.subcategory==category.nameCategory) }
-        else { totalProducts=data.result;
+  .then( (querySnapshot)=>{ if (querySnapshot.size>0){ setCatalogo(querySnapshot.docs); 
+    totalProducts= querySnapshot.docs.map(product=> {let result= product.data(); 
+    console.log(result.name+"son los datos") } )
+        /*console.log(category.nameCategory)
+        if (category.nameCategory!=undefined) { totalProducts= querySnapShot.docs.map(product=> {let result= product.data(); console.log(result) } ) }
+        else { totalProducts=querySnapShot.result;
         console.log("no pase el if")}
         setCatalogo(totalProducts)
-        console.log(catalogo)
+        console.log(catalogo) */
       } else{
           throw new Error()
       }
@@ -53,10 +54,10 @@ return <div className="row containerProducts py-4">
   
     {loading?( <p> <h2> LOADING</h2> <Loading> </Loading> </p>): (
   
-  catalogo.map(element=>{ 
+  catalogo.map(element=>{  
 return <div className="col-md-4">
   
-  <Item name={element.name} id={element.id} category={element.category} stock={element.stock}> </Item> </div>
+  <Item name={element.data().name} category={element.data().category} stock={element.data().stock}> </Item> </div>
 
          
         } ) 
