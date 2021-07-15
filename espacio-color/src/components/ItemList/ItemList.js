@@ -57,7 +57,7 @@ return <div className="row containerProducts py-4">
   catalogo.map(element=>{  
 return <div className="col-md-4">
   
-  <Item name={element.data().name} category={element.data().category} stock={element.data().stock}> </Item> </div>
+  <Item name={element.data().name} category={element.data().category} stock={element.data().stock} id={element.id}> </Item> </div>
 
          
         } ) 

@@ -15,6 +15,7 @@ function Item( props) {
             <div className=" list-group-item cardText">
             Cantidad en Stock : { props.stock}
             </div>
+            
         </div>
         <a className="py-2  px-2 button btn-light button-item"> <Link exact to={`/itemDetailContainer/${props.id}`} className="link">  Ver Detalle</Link>  </a>
 

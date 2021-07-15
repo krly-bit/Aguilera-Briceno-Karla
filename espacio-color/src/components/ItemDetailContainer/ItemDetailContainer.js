@@ -7,9 +7,13 @@ import ArticleList from '../../ArticleList';
 import {useContext} from 'react';
 import CartContext from '../../context/CartContext';
 import Counter from '../counter/Counter';
+import { getFirestore } from '../../firebase/firebase.js';
 
 function ItemDetailContainer ()
-{
+{    
+    const db = getFirestore();
+    const itemCollection = db.collection('items');
+    
     const { addToCart } = useContext(CartContext);
     const cart=useContext(CartContext);
   
@@ -22,19 +26,15 @@ const [product, setProduct] = useState([{id:"", name:"", stock:"", description:"
 const [loading, setLoading]=useState(true);
 useEffect(()=>{
  setLoading(true);  
-new Promise( (resolve, reject) => {
-
-        setTimeout(resolve({ result: ArticleList,}, 3000))})
-
-        .then( (data) => {
-
-            if(data.result)
-            {
+ itemCollection.get()
 
 
-            console.log(data.result)
-    for (let i=0; i<3; i++) {   console.log(`Este es el id del producto ${productId.productId}`); 
-    if(data.result[i].id==productId.productId) {productSelected=data.result[i]; 
+        .then( (querySnapshot) => {
+
+            if(querySnapshot.size>0)
+    {console.log(querySnapshot.docs)
+    for (let i=0; i<querySnapshot.size; i++) {   console.log(`Este es el id del producto ${productId.productId}`); 
+    if(querySnapshot.docs[i].id==productId.productId) {productSelected=querySnapshot.docs[i].data(); 
 
         console.log(productSelected) ;
         setProduct(productSelected);
