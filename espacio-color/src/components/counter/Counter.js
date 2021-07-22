@@ -40,7 +40,7 @@ function Counter (props){
     }
 
     return <div className="containerCounter itemAction"> { !props.cartCounter? (<div className="containerCounter">
-    <button className="BuyButton btn-light" onClick={()=> addToCart({id:props.id, item:props.item, quantity:count, stock:props.stock})}> Agregar al carrito </button>
+    <button className="BuyButton btn-light" onClick={()=> addToCart({ item:props.item, quantity:count, stock:props.stock})}> Agregar al carrito </button>
      <div className="counter">
     <div className="itemCounter itemAction" onClick={()=>onAdd()}>+</div> <div className="itemCounter itemNumber"> {count} </div> 
     <div className="itemCounter itemAction" onClick={()=>onSubstrat()}>-</div> 
