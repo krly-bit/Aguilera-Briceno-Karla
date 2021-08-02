@@ -1,4 +1,12 @@
 .cart{color:#31b5c2;
 font-size: 20px;
 display:flex;
+flex-direction:row;
+align-items:center;
 margin:10px;}
+.cartWidget{
+display:flex;
+flex-direction:row;
+align-items:center;
+
+}

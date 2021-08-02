@@ -19,7 +19,8 @@ function CartWidget () {
    
 
 
-    return (<div> <Link exact to={`/cart`}> {cart.totalItems} <FontAwesomeIcon icon="shopping-cart" className="cart"/> </Link>
+    return (
+    <div> <Link className="cartWidget" exact to={`/cart`}> {cart.totalItems} <FontAwesomeIcon icon="shopping-cart" className="cart"/> </Link>
         </div>
 
    

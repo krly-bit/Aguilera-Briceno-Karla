@@ -15,19 +15,22 @@ function NavbarCs(props) {
   
         
         return <div className="container-fluid">
-        <div className="navbar navbar-expand-sm navbar-light bg-light">
+        <div className="navbar navbar-light bg-light navbar-expand-md sticky-top main-menu">
                       
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapsed" aria-controls="navbar-collapsed" aria-expanded="false" aria-label="Toggle navigation">
+      
+        <div className="navbar-brand" href="/"> <Logo/> </div>
+  
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsed" aria-controls="navbar-collapsed" aria-expanded="false" aria-label="Toggle navigation">
+
+    
+        
         <span className="navbar-toggler-icon"></span>
         
         </button>
-        <div className="navbar-brand" href="/"> <Logo/> </div>
-  <div id="navbar-collapsed">
-
-    <div className="nav mr-auto">
+    <div className="navbar-expand-md navbar-nav collapse navbar-collapse navbar-menu mr-auto" id="navbar-collapsed">
      
   
-        </div> 
+       
       <NavLink exact to={`/`} className="menuLink" activeClassName="selectedLink">
         Inicio </NavLink> 
         <div className="dropdown show">
@@ -52,16 +55,24 @@ function NavbarCs(props) {
 
       
       </div>
-  
-      
-    <form className="d-flex">
+
+        
+    <form className="form-menu">
     <CartWidget/>
       <input className="form-control" type="search" placeholder="Buscar"/>
   
       <button className="btn btn-outline-info" type="submit">Buscar</button>
     </form>
+      
+  
+    
     
     </div>
+
+    
+
+    
+    
   </div>
 
   

@@ -5,35 +5,42 @@ import Loading from '../../assets/images/loading/Loading'
 import ArticleList from '../../ArticleList'
 import { useParams } from 'react-router-dom';
 import { getFirestore } from '../../firebase/firebase.js';
+import React from "react";
+import ReactDOM from "react-dom";
+import {BrowserRouter as Router, Switch, useLocation} from "react-router-dom";
 
- function ItemList () {
+ 
+ function ItemList (props) {
 
-   let products =[
-        {id:"1", name:"agendas-minimal",  stock:"10", category:"libreria", description:"agenda con diseños minimalistas", models:["violeta", "amarillo", "azul", "verde agua", "verde musgo", "naranja"] },
-        {id:"2", name: "móvil metálico",  stock:"20", category:"deco", description:"Móvio metalico con sonidos", models:"móvil metálico flautas"},
-        {id:"3", name:"movil de semillas",stock:"20", category:"deco", description:"Móvil de semillas", models:["colores tropicales", "colores marinos", "colores puesta de sol", " colores noche"]},]
+  
 
-const [catalogo, setCatalogo] = useState([{ id:"", name:" ", stock:"", category:"", description:"", models:""}]);
+/*const [catalogo, setCatalogo] = useState([]);
+const [totalproducts, setTotalproducts]= useState([]);
 const [loading, setLoading] =useState(true);
-let category=useParams();
-let totalProducts;
+let {nameCategory}=useParams();
+let ruta = useLocation();
+let productsList;
 useEffect( ()=>{
  setLoading(true); 
  const db = getFirestore();
  const itemCollection = db.collection('items');
 
- /*new Promise( (resolve, reject)=>*/
- itemCollection.get() 
-  .then( (querySnapshot)=>{ if (querySnapshot.size>0){ setCatalogo(querySnapshot.docs); 
-    totalProducts= querySnapshot.docs.map(product=> {let result= product.data(); 
-    console.log(result.name+"son los datos") } )
-        /*console.log(category.nameCategory)
-        if (category.nameCategory!=undefined) { totalProducts= querySnapShot.docs.map(product=> {let result= product.data(); console.log(result) } ) }
-        else { totalProducts=querySnapShot.result;
-        console.log("no pase el if")}
-        setCatalogo(totalProducts)
-        console.log(catalogo) */
-      } else{
+ 
+
+ if (catalogo.length <=0)
+ {console.log('catalogo es menor a cero');
+   itemCollection.get() 
+  .then( (querySnapshot)=>{ if (querySnapshot.size>0){
+    setTotalproducts(querySnapshot.docs)
+    console.log(nameCategory);
+    console.log(ruta);
+    console.log(querySnapshot.docs[1].data())
+   if (nameCategory==undefined) 
+   {setCatalogo(querySnapshot.docs); console.log(totalproducts) } 
+   else { productsList=querySnapshot.docs.filter(element=> element.data().subcategory==nameCategory); console.log(productsList);setCatalogo(productsList)} 
+  
+       
+         
           throw new Error()
       }
 
@@ -47,14 +54,24 @@ useEffect( ()=>{
   .catch(error=>{ console.log(error.message);
     return "No hay productos disponibles"
 } ) 
-.finally (() =>{
-   setLoading(false);})}, [] ) 
+.finally(() =>{
+   setLoading(false);}) }  
+  else { 
+    console.log('catalogo tiene otro valor')
+    console.log(catalogo);
+    if (nameCategory!=undefined)
+ { let newProducts= catalogo.filter(element=> element.data().subcategory==nameCategory); setCatalogo(newProducts) ; setLoading(false);
+
+  } else{ 
+    console.log(catalogo)
+    setCatalogo(totalproducts); setLoading(false)} 
+} }, [ruta], []) */
+   
+  
 
 return <div className="row containerProducts py-4"> 
   
-    {loading?( <p> <h2> LOADING</h2> <Loading> </Loading> </p>): (
-  
-  catalogo.map(element=>{  
+    {props.loading?( <p> <Loading> </Loading> </p>): (props.catalogo.map(element=>{  
 return <div className="col-md-4">
   
   <Item name={element.data().name} category={element.data().category} stock={element.data().stock} id={element.id}> </Item> </div>

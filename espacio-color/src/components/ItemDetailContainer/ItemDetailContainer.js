@@ -35,9 +35,10 @@ useEffect(()=>{
     {console.log(querySnapshot.docs)
     for (let i=0; i<querySnapshot.size; i++) {   console.log(`Este es el id del producto ${productId.productId}`); 
     if(querySnapshot.docs[i].id==productId.productId) {productSelected=querySnapshot.docs[i].data(); 
-
+       
         console.log(productSelected) ;
         setProduct(productSelected);
+
   
      } } } else { throw new Error()}},
 
@@ -50,15 +51,9 @@ useEffect(()=>{
     } )
     .finally( ()=>{ setLoading(false) }) }, [])
 return <div className="container my-5 mx-auto containerProductDetail"> 
-{ loading? (<p className="text-center"> <h2> Loading </h2> <Loading></Loading> </p> ): (
-<div className="row mx-auto"> <div className="col-md-2"></div> <div className="col-md-8"><ItemDetail name={product.name} category={product.category} description={product.description} image={product.image} stock={product.stock} id={product.id} addToCart={addToCart} cart-context={cart} > </ItemDetail> </div> </div>)} </div>
-/*<div>  detalle producto <br></br>
-Producto: {product.name} <br></br>
-Categoría : {product.category} <br></br>
-Descripción: {product.description} <br></br>
-<img src={`${product.image}`}></img>
+{ loading? (<p className="text-center"> <h2> Loading </h2> <Loading></Loading> </p> ): ( 
+<div className="row mx-auto"> <div className="col-md-2"></div> <div className="col-md-8"><ItemDetail name={product.name} category={product.category} description={product.description} image={product.image} stock={product.stock} id={productId.productId} addToCart={addToCart} cart-context={cart} price={product.price}> </ItemDetail> </div> </div>)} </div>
 
- </div> */
 
 
 }

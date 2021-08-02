@@ -5,4 +5,20 @@
     text-decoration:none!important;  
 }
 
-.seletedLink{background-color: aqua;}
+.selectedLink{background-color:yellow;}
+.form-menu{ 
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;}
+
+
+ .main-menu{
+     display:flex;
+     justify-content:space-between!important;
+ } 
+ 
+ .navbar-menu{
+     flex-grow:0!important;
+     width:auto;
+ }
